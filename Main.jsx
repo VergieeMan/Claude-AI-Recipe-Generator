@@ -23,7 +23,7 @@ export default function Main() {
     }
 
 }
-
+    const [error, setError] = React.useState("")
     function addIngredient(formData) {
         const newIngredientName = formData.get("ingredient").trim()
         if(newIngredientName.length <1){
@@ -52,6 +52,17 @@ export default function Main() {
                     name="ingredient"
                 />
                 <button>Add ingredient</button>
+                 {error && (
+                <div style={{
+                    background: "#f8d7da",
+                    color: "#721c24",
+                    padding: "8px",
+                    borderRadius: "6px",
+                    marginTop: "8px"
+                }}>
+                    {error}
+                </div>
+                 )}
             </form>
             {ingredients.length === 0 &&
                             <RecipePlaceHolder
