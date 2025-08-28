@@ -30,6 +30,14 @@ export default function Main() {
             setError("Ingredient cannot be empty!")
             return
         }
+         const alreadyExists = ingredients.some(
+            (ingredient) => ingredient.name.toLowerCase() === newIngredientName.toLowerCase()
+    );
+
+    if (alreadyExists) {
+        setError("Ingredient already exists!");
+        return;
+    }
         setError("")
         const newIngredient = {
             id: crypto.randomUUID(),
@@ -55,6 +63,8 @@ export default function Main() {
                  {error && (
                 <div style={{
                     background: "#f8d7da",
+                    display: "flex",
+                    alignItems: "center",
                     color: "#721c24",
                     padding: "8px",
                     borderRadius: "6px",
