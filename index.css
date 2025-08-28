@@ -26,7 +26,7 @@ header > h1 {
     font-weight: 400;
 }
 
-.footer {
+footer {
   text-align: center;        
   padding: 1rem;            
   background-color: #f8f8f8;
@@ -38,7 +38,7 @@ header > h1 {
   left: 50%
 }
 
-.footer span {
+footer span {
   color: #e25555;
 }
 
