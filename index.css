@@ -105,6 +105,13 @@ ul.ingredients-list > li {
     cursor: pointer;
 }
 
+.get-recipe-container button:hover{
+    color:#2f6d08;
+    text-shadow: 0 0 5px #ffffff,
+               0 0 10px #ffffff,
+               0 0 20px #ffffff;;
+}
+
 .suggested-recipe-container {
     color: #475467;
     line-height: 28px;

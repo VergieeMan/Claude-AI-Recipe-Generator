@@ -24,28 +24,13 @@ export default function Main() {
 
 }
 
-// async function getRecipe() {
-//   try {
-//     console.log("Calling Netlify function...");
-//     const res = await fetch("/.netlify/functions/ai", {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify({ ingredients }),
-//     });
-
-//     console.log("Response status:", res.status);
-
-//     const data = await res.json();
-//     console.log("Data from Netlify function:", data);
-
-//     setRecipe(data.recipe || "");
-//   } catch (err) {
-//     console.error("Error fetching recipe:", err);
-//   }
-// }
-
     function addIngredient(formData) {
-        const newIngredientName = formData.get("ingredient")
+        const newIngredientName = formData.get("ingredient").trim()
+        if(newIngredientName.length <1){
+            setError("Ingredient cannot be empty!")
+            return
+        }
+        setError("")
         const newIngredient = {
             id: crypto.randomUUID(),
             name:newIngredientName
