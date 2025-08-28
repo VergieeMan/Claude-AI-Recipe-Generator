@@ -26,7 +26,7 @@ export default function Main() {
 async function getRecipe() {
   try {
     console.log("Calling Netlify function...");
-    const res = await fetch("/.netlify/functions/getRecipe", {
+    const res = await fetch("/.netlify/functions/ai", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ingredients }),
