@@ -30,12 +30,12 @@ header > h1 {
   text-align: center;        
   padding: 1rem;            
   background-color: #f8f8f8;
-  color: #333;               
-  font-size: 0.9rem;       
-  position: fixed;  
+  color: #7a7676;               
+  font-size: 0.7rem;       
   bottom: 0;
   width: 100%;
   box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  left: 50%
 }
 
 .footer span {
