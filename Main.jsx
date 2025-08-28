@@ -8,19 +8,39 @@ export default function Main() {
     const [ingredients, setIngredients] = React.useState([])
     const [recipe, setRecipe] = React.useState("")
 
-    async function getRecipe() {
-    try {
-        const res = await fetch("/.netlify/functions/ai", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ingredients }),
-        });
+//     async function getRecipe() {
+//     try {
+//         const res = await fetch("/.netlify/functions/ai", {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({ ingredients }),
+//         });
 
-        const data = await res.json();
-        setRecipe(data.recipe || "");
-    } catch (err) {
-        console.error("Error fetching recipe:", err);
-    }
+//         const data = await res.json();
+//         setRecipe(data.recipe || "");
+//     } catch (err) {
+//         console.error("Error fetching recipe:", err);
+//     }
+// }
+
+async function getRecipe() {
+  try {
+    console.log("Calling Netlify function...");
+    const res = await fetch("/.netlify/functions/getRecipe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ingredients }),
+    });
+
+    console.log("Response status:", res.status);
+
+    const data = await res.json();
+    console.log("Data from Netlify function:", data);
+
+    setRecipe(data.recipe || "");
+  } catch (err) {
+    console.error("Error fetching recipe:", err);
+  }
 }
 
     function addIngredient(formData) {
