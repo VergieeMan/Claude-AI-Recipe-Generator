@@ -20,7 +20,7 @@ export default function Main() {
         setRecipe(data.recipe || "");
     } catch (err) {
         console.error("Error fetching recipe:", err);
-    }npm install react-markdown
+    }
 
 }
 
